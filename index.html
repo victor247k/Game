@@ -8,8 +8,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <section class="menu-container" role="modal">
+        <div class="modal">
+            <button id="viewPaternsBtn">View Paterns</button> <!--viewPaternsModal-->
+
+            <button id="resetPaternsBtn">Reset Paterns</button> <!--yesNoBtn-->
+            
+            <button id="closeModal">Close</button>
+        </div>
+    </section>
+
+    <section class="yesNoBtn" role="modal">
+        <div class="text">
+            <p>Are you sure you want to reset all of the paterns?</p>
+        </div>
+        <div class="YesNobtns">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </section>
+
+    <section role="modal" class="viewPaternsModal">
+        <button id="closevPM">
+            Close
+        </button>
+        <div class="table">
+
+        </div>
+    </section>
+
     <header role="heading">
+
+        <button id="menuBtn">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+
         <h1>Cool Game</h1>
+
+        <div class="creator">
+            <p>Made by <a href="https://github.com/victor247k" target="_blank">Victor</a></p>
+        </div>
     </header>
     <main role="main">
 
@@ -21,9 +62,7 @@
         <p class="errorsText"></p>
     </footer>
 
-    <div class="creator">
-        <p>Made by <a href="https://github.com/victor247k" target="_blank">Victor</a></p>
-    </div>
+    
 </body>
 <script src="app.js"></script>
 </html>

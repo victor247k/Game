@@ -20,30 +20,29 @@ body {
 }
 header {
     width: 100%;
-    
-    text-align: center;
-    text-transform: capitalize;
 
     background-color: #F4C095;
+
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 header h1 {
     font-size: 3rem;
     color: #1D7874;
 }
 main {
-
-
     padding: 10px 30px 0px;
     margin-bottom: -20px;
 
     background-color: #1D7874;
-    /* border: 1px solid #fff; */
 
     display: grid;
     width: 80%;
 
     grid-template-columns: 250px;
-    /* place-content: center; */
     
     overflow-y: scroll;
 }
@@ -126,16 +125,235 @@ footer #submit:hover {
     background-color: #679289;
 }
 .creator {
-    position: absolute;
     color: #000;
-    top: 0px;
-    right: 5px;
+
     font-family: monospace;
+
     padding: 0px 10px;
+    margin: 0px;
 }
 .creator a {
     color: #EE2E31;
 }
 .creator:hover{
+    color: #EE2E31;
+}
+
+#menuBtn {
+    border: 0;
+
+    padding: 0;
+    margin: 20px;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    width: 40px;
+    height: 30px;
+
+}
+#menuBtn .line {
+    border-radius: 5px;
+    width: 60%;
+    height: 4px;
+
+    background-color: #fff;
+}
+
+.menu-container {
+    display: none;
+    place-items: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: #0000009e;
+
+    width: 100vw;
+    height: 100vh;
+}
+.modal {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    height: 250px;
+    width: 80%;
+    max-width: 200px;
+
+    border-radius: 10px;
+
+    background-color: #679289;
+    color: #F4C095;
+}
+.modal button {
+    all: unset;
+    
+    cursor: pointer;
+
+    margin: 10px 0;
+
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+
+    transition: 200ms;
+}
+
+.modal button:hover {
+    transform: scale(1.01);
+    color: #EE2E31;
+}
+
+@media (max-width: 450px) {
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+.yesNoBtn {
+    position: absolute;
+    top: 40%;
+
+    border-radius: 20px;
+
+    width: 220px;
+    height: 100px;
+
+    background-color: #fff;
+    color: #000;
+
+    display: none;
+
+    padding: 20px;
+
+    z-index: 2;
+}
+.yesNoBtn div button {
+    all: unset;
+    cursor: pointer;
+    
+    margin: 10px;
+    width: 50px;
+    height: 20px;
+
+    text-align: center;
+}
+.yesNoBtn .YesNobtns button:nth-child(2) {
+    background-color: #EE2E31;
+    color: #fff;
+}
+.yesNoBtn .YesNobtns {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.yesNoBtn .YesNobtns button:nth-child(2):hover {
+    background-color: #922729;
+}
+.yesNoBtn .YesNobtns button:nth-child(1):hover {
+    background-color: grey;
+}
+
+.viewPaternsModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: none; /*grid / none*/ 
+    place-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+
+    z-index: 2;
+
+    background-color: #071E22;
+
+
+}
+.viewPaternsModal button {
+    all: unset;
+    cursor: pointer;
+
+    color: #fff;
+    background-color: #679289;
+
+    width: 70px;
+    height: 30px;
+    padding: 5px;
+    margin: 10px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    border-radius: 10px;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 1.5rem;
+
+    transition: 200ms;
+}
+.viewPaternsModal button:hover {
+    background-color: #1D7874;
+    font-weight: 700;
+}
+.viewPaternsModal .table {
+    background-color: #1D7874;
+
+    border-radius: 10px;
+
+    width: 90%;
+    height: 95%;
+    padding: 10px;
+
+    overflow-x: scroll;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.viewPaternsModal .table .numbers{
+    font-family: monospace;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.viewPaternsModal .table .numbers p {
+    border: 1px solid;
+}
+
+.patterns {
+    border: 1px solid #fff;
+    
+    font-family: monospace;
+    font-size: 1.5rem;
+    text-align: center;
+
+    width: 80px;
+}
+.tableBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-family: monospace;
+    font-size: 1.5rem;
+}
+.tableBox p {
+    border: 1px solid;
+    width: 50%;
+}
+.specialText {
     color: #EE2E31;
 }

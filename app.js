@@ -54,7 +54,7 @@ const errArr = [
     ''
 ];
 
-const uniquePatterns = JSON.parse(localStorage.getItem('uniquePatterns')) || [];
+let uniquePatterns = JSON.parse(localStorage.getItem('uniquePatterns')) || [];
 
 submitBtn.addEventListener('click', function(){
     let currentPattern = JSON.stringify(pattern);
@@ -100,3 +100,87 @@ submitBtn.addEventListener('click', function(){
     };
     localStorage.setItem('uniquePatterns', JSON.stringify(uniquePatterns));
 });
+
+// menu
+
+const menuOpenBtn = document.getElementById('menuBtn');
+const menu = document.querySelector('.menu-container');
+const menuCloseBtn = document.getElementById('closeModal');
+
+menuOpenBtn.addEventListener('click', function(){
+    menu.style.display = 'grid';
+});
+menuCloseBtn.addEventListener('click', function(){
+    menu.style.display = 'none';
+});
+
+document.getElementById('resetPaternsBtn').addEventListener('click', function(){
+    document.querySelector('.yesNoBtn').style.display = 'block';
+});
+document.querySelector('#noBtn').addEventListener('click', function(){
+    document.querySelector('.yesNoBtn').style.display = 'none';
+});
+document.querySelector('#yesBtn').addEventListener('click', function(){
+    document.querySelector('.yesNoBtn').style.display = 'none';
+    uniquePatterns = [];
+    localStorage.setItem('uniquePatterns', JSON.stringify(uniquePatterns));
+});
+
+document.querySelector('#viewPaternsBtn').addEventListener('click', function(){
+    document.querySelector('.viewPaternsModal').style.display = 'grid';
+});
+document.querySelector('#closevPM').addEventListener('click', function(){
+    document.querySelector('.viewPaternsModal').style.display = 'none';
+});
+
+// view
+
+const table = document.querySelector('.table'); // main item
+
+
+
+function createNumbers() {
+    const divTable = document.createElement('div');
+    divTable.classList.add('numbers');
+
+    for (let i = 0; i < 21; i++) {
+        const p = document.createElement('p');
+        p.textContent = (i === 0) ? '-' : i < 10 ? `0${i}.` : `${i}.`;
+        divTable.appendChild(p);
+    };
+    table.appendChild(divTable)
+}
+createNumbers();
+
+function displayPaterns() {
+    for (let i = 0; i <= uniquePatterns.length; i++) {
+
+        const divTable = document.createElement('div');
+        divTable.classList.add('patterns');
+
+        const p = document.createElement('p');
+        p.textContent = `${i + 1}`
+
+        let arr = JSON.parse(`${uniquePatterns[i]}`)
+
+        divTable.appendChild(p);
+
+        for (let j = 0; j < arr.length; j++) {
+            const p = document.createElement('p');
+            p.textContent =  `${arr[j][0]}`
+            const m = document.createElement('p');
+            m.textContent =  `${arr[j][1]}`
+
+            const divTableBox = document.createElement('div');
+            divTableBox.classList.add('tableBox');
+
+            divTableBox.appendChild(p);
+            divTableBox.appendChild(m);
+
+            divTable.appendChild(divTableBox);
+        }
+
+        table.appendChild(divTable)
+    }
+}
+displayPaterns();
