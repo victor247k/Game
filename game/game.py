@@ -1,4 +1,5 @@
 import pygame
+import random
 
 
 pygame.init()
@@ -13,9 +14,21 @@ playerImg = pygame.image.load('rocket.png')
 playerImg = pygame.transform.scale(playerImg, (64, 64))
 playerX  = 370
 playerY = 480
+playerX_change = 0
+
+
+enemyImg = pygame.image.load('monster.png')
+enemyImg = pygame.transform.scale(enemyImg, (64, 64))
+enemyX = random.randint(0, 800)
+enemyY = random.randint (50, 150)
+enemyX_change = 0.3
+enemyY_change = 0
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
+
+def enemy(x, y):
+    screen.blit(enemyImg, (x, y))
 
 playerX_change = 0
 playerY_change = 0
@@ -53,5 +66,15 @@ while running:
     elif playerX >=736:
         playerX = 736
 
+    enemyX += enemyX_change
+
+    if enemyX <=0:
+        enemyX = 0
+        enemyX_change = -enemyX_change
+    elif enemyX >=736:
+        enemyX = 736
+        enemyX_change = -enemyX_change
+
     player(playerX,playerY)
+    enemy(enemyX,enemyY)
     pygame.display.update()
